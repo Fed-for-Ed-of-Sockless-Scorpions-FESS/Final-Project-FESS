@@ -30,13 +30,11 @@ void draw() {
     }
     
   }
-  if (keyCode== UP) {
-      //if (keyPressed) {
-      //if (key == ' ') {
-      loc2.add(vel);
-//      vel.add(acc);
-      //      loc2.y --;
-    }
+//  if (keyCode== UP) {
+//    
+//      loc2.add(vel);
+//      
+//    }
 }
 
 
