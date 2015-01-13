@@ -1,4 +1,7 @@
-ArrayList<spaceShip> ship = new ArrayList<spaceShip> ();
+int count[] = 3;
+PVector[] loc = new PVector [count];
+PVector[] vel = new PVector [count];
+PVector[] sz = new PVector [count];
 
 void setup() {
   size (600, 800);
@@ -8,10 +11,9 @@ void draw() {
    println(ship.size());
    background(0);
   
-  for (int i = ship.size() -1; i >= 0; i--) {
-    spaceShip plane = ship.get(i);
-    plane.display();
-    plane.move();
+  for (int i = 0; i < count; i++) {
+    sz[i] = 30;
+    loc[i] = 
   }
 }
 
@@ -41,10 +43,5 @@ class spaceShip {
     }
   }
 }
-
-
-
-
-
 
 
