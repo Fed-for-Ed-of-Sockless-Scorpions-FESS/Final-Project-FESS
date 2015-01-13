@@ -5,19 +5,24 @@ class Enemy {
 
   Enemy(float x, float y) {
     loc = new PVector(x, y);
-    vel = new PVector(1.5,.1);
+    vel = new PVector(1.5, .1);
     sz = 30;
   }
   void display() {
     ellipse(loc.x, loc.y, sz, sz);
   }
-  void move(){
-  loc.add(vel);
+  void move() {
+    loc.add(vel);
   }
-  void bounce(){
-  if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
+  void bounce() {
+    if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
       vel.x *= -1;
+    }}
+    void gameover() {
+      if (loc.y>height) {
+        text("Game Over", width/2-150, height/2);
+      }
     }
   }
-}
+
 
