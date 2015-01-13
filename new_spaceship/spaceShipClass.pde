@@ -16,10 +16,10 @@ class spaceShip {
   void move () {
     if (keyPressed) {
       if (keyCode == RIGHT && loc.x + sz/2 < width) {
-        loc.x ++;
+        loc.x = loc.x + 3;
       }
       if (keyCode == LEFT && loc.x - sz/2 > 0) {
-        loc.x --;
+        loc.x  = loc.x - 3;
       }
     }
   }
