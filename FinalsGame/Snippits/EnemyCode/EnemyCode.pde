@@ -15,6 +15,8 @@ void draw() {
   for (int i = 0; i < enemies.size (); i++) {
     Enemy e = enemies.get(i);
     e.display();
+    e.move();
+    e.bounce();
   }
 }
 
