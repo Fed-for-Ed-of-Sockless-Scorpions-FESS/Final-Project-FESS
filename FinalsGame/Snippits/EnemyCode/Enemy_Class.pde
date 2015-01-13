@@ -17,12 +17,24 @@ class Enemy {
   void bounce() {
     if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
       vel.x *= -1;
-    }}
-    void gameover() {
-      if (loc.y>height) {
-        text("Game Over", width/2-150, height/2);
-      }
     }
   }
+  void gameover() {
+    if (loc.y>height) {
+      text("Game Over", width/2-150, height/2);
+    }
+  }
+}
+
+//  void die(){
+//    if(shooter hits enemy){
+//     shooter.remove; \
+//     score increases
+//    }
+//  }
+//  void shoot() {
+//    
+//  }
+
 
 
