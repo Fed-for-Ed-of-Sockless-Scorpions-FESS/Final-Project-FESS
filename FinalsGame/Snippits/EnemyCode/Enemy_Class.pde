@@ -22,7 +22,7 @@ class Enemy {
   void gameover() {
     if (loc.y+sz/2>height) {
       background(0);
-      text("Game Over", width/2-150, height/2);
+      text("Game Over!", width/2-175, height/2);
     }
   }
 }
