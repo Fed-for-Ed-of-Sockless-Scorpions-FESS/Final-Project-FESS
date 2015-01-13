@@ -5,7 +5,7 @@ class Enemy {
 
   Enemy(float x, float y) {
     loc = new PVector(x, y);
-    vel = new PVector(1.5, .1);
+    vel = new PVector(5, 1);
     sz = 30;
   }
   void display() {
@@ -20,21 +20,10 @@ class Enemy {
     }
   }
   void gameover() {
-    if (loc.y>height) {
+    if (loc.y+sz/2>height) {
+      background(0);
       text("Game Over", width/2-150, height/2);
     }
   }
 }
-
-//  void die(){
-//    if(shooter hits enemy){
-//     shooter.remove; \
-//     score increases
-//    }
-//  }
-//  void shoot() {
-//    
-//  }
-
-
 
