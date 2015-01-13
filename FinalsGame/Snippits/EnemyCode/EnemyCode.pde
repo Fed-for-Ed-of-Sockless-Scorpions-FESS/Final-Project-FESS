@@ -7,7 +7,7 @@ void setup() {
   size(800, 600);
   for (int x = 0; x < columns; x++) {
     for (int y = 0; y < rows; y++) {
-      enemies.add(new Enemy(80 + x * 80, 25 + y * 50));
+      enemies.add(new Enemy(80 + x * 50, 25 + y * 50));
     }
   }
 }
