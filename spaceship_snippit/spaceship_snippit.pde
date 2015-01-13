@@ -1,59 +1,53 @@
-float sz;
-PVector loc;
-PVector vel;
-float sz2;
-PVector loc2;
-//PVector acc;
 
+
+//PVector acc;
+ArrayList<spaceShip> ship = new ArrayList<spaceShip> ();
 
 void setup() {
   size (600, 800);
-  sz = 20;
-  sz2 = 5;
-  loc = new PVector(width/2, height *.9);
-  loc2 = new PVector(width/2, height *.9);
-//  acc = new PVector(0, .01);
-  vel = new PVector(0, -1);
 }
 
 void draw() {
-
-
-  ellipse(loc.x, loc.y, sz, sz);
-  ellipse(loc2.x, loc2.y, sz2, sz2);
-  if (keyPressed) {
-    if (keyCode == RIGHT && loc.x + sz/2 < width) {
-      loc.x ++;
-    }
-    if (keyCode == LEFT && loc.x - sz/2 > 0) {
-      loc.x --;
-    }
-    
+   println(ship.size());
+   background(0);
+  
+  for (int i = ship.size() -1; i >= 0; i--) {
+    spaceShip plane = ship.get(i);
+    plane.display();
+    plane.move();
   }
-//  if (keyCode== UP) {
-//    
-//      loc2.add(vel);
-//      
-//    }
+}
+
+class spaceShip {
+  float sz;
+  PVector loc;
+  PVector vel;
+
+  spaceShip() {
+    sz = 20;
+    loc = new PVector(width/2, height *.9);
+    vel = new PVector(0, -1);
+  }
+
+  void display() {
+    ellipse(loc.x, loc.y, sz, sz);
+  }
+
+  void move () {
+    if (keyPressed) {
+      if (keyCode == RIGHT && loc.x + sz/2 < width) {
+        loc.x ++;
+      }
+      if (keyCode == LEFT && loc.x - sz/2 > 0) {
+        loc.x --;
+      }
+    }
+  }
 }
 
 
 
-//if(loc.x + sz/2 > width) {
-//  
-//}
 
 
-//class ship {
-//  float sz;
-//  float loc;
-//  float vel;
-//  
-//  spaceShip() {
-//    sz = 20;
-//    loc = (width/2, height * .9);
-//    
-//    //vel = 
-//  }
-//}
+
 
