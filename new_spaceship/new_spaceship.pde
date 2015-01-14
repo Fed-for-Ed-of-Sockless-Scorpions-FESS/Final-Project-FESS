@@ -1,7 +1,7 @@
 spaceShip [] s = new spaceShip [3];
 
 void setup() {
-  size (600, 800);
+  size (800, 600);
   for (int i = 0; i < s.length; i++) {
     s[i] = new spaceShip();
   }
