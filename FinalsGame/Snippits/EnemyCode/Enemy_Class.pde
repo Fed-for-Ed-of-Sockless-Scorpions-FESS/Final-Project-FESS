@@ -5,7 +5,7 @@ class Enemy {
 
   Enemy(float x, float y) {
     loc = new PVector(x, y);
-    vel = new PVector(5, 1);
+    vel = new PVector(1, .1);
     sz = 30;
   }
   void display() {
