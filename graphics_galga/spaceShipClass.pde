@@ -1,6 +1,7 @@
 class spaceShip {
   PVector loc;
   float sz;
+  PImage superman;
 
   spaceShip() {
     sz = 30;
