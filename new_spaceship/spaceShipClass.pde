@@ -4,13 +4,10 @@ class spaceShip {
 
   spaceShip() {
     sz = 30;
-
     loc = new PVector(width/2, height *.9);
-   
   }
 
   void display() {
-
     ellipse(loc.x, loc.y, sz, sz);
   }
 

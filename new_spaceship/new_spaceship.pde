@@ -24,7 +24,9 @@ void draw() {
     Shooter s = shoots.get(i);
     s.display();
     s.move();
-    //s.destroy();
+    if (s.flyAway()) {
+      shoots.remove(i);
+    }
   }
   for (int i = 0; i < enemies.size (); i++) {
     Enemy e = enemies.get(i);
@@ -32,6 +34,7 @@ void draw() {
     e.move();
     e.bounce();
     e.gameover();
+    //e.newLevel();
     for (int j = 0; j< shoots.size (); j++) {
       Shooter s = shoots.get(j);
       if (s.destroy(e)) {
@@ -40,14 +43,14 @@ void draw() {
       }
     }
   }
-    if (BlackBox.isKeyDown(BlackBox.VK_SPACE) && BlackBox.isKeyDown(BlackBox.VK_LEFT)) {
-      println("Both the 'A' key and the 'A' key are pressed!");
-    }
+  if (BlackBox.isKeyDown(BlackBox.VK_SPACE) && BlackBox.isKeyDown(BlackBox.VK_LEFT)) {
+    println("Both the 'A' key and the 'A' key are pressed!");
   }
+}
 
-  void keyPressed() {
-    if (key == ' ') {
-      shoots.add(new Shooter(ship));
-    }
+void keyPressed() {
+  if (key == ' ') {
+    shoots.add(new Shooter(ship));
   }
+}
 

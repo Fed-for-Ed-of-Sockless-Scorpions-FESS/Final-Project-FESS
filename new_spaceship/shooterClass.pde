@@ -3,7 +3,6 @@ class Shooter {
   PVector loc;
   PVector vel;
 
-
   Shooter(spaceShip ship) {
     sz = 20;
     loc = new PVector(ship.loc.x, ship.loc.y);
@@ -22,6 +21,14 @@ class Shooter {
     if (loc.dist(monster.loc) < sz/2 + monster.sz/2) {
       return true;
     } else {
+      return false;
+    }
+  }
+
+  boolean flyAway() {
+    if (loc.y - sz/2 < 0) {
+      return true;
+    } else { 
       return false;
     }
   }
