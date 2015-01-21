@@ -3,6 +3,7 @@ ArrayList<Shooter> shoots = new ArrayList<Shooter> ();
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int rows = 4;
 int columns = 10;
+int mainVel = 1;
 
 void setup() {
   size (800, 600);
@@ -10,7 +11,7 @@ void setup() {
   BlackBox.init(this);
   for (int x = 0; x < columns; x++) {
     for (int y = 0; y < rows; y++) {
-      enemies.add(new Enemy(80 + x * 50, 25 + y * 50,1));
+      enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVel));
     }
     textSize(70);
   }
@@ -18,6 +19,7 @@ void setup() {
 
 void draw() {
   background(0);
+  newLevel();
   ship.display();
   ship.move();
   for (int i = 0; i< shoots.size (); i++) {
@@ -34,14 +36,8 @@ void draw() {
     e.move();
     e.bounce();
     e.gameover();
-    //e.newLevel();
-    if (enemies.size() == 0) {
-      for (int x = 0; x < columns; x++) {
-        for (int y = 0; y < rows; y++) {
-          enemies.add(new Enemy(80 + x * 50, 25 + y * 50,1 ));
-        }
-      }
-    }
+
+
     for (int j = 0; j< shoots.size (); j++) {
       Shooter s = shoots.get(j);
       if (s.destroy(e)) {
@@ -58,6 +54,17 @@ void draw() {
 void keyPressed() {
   if (key == ' ') {
     shoots.add(new Shooter(ship));
+  }
+}
+
+void newLevel() {
+  if (enemies.size() == 0) {
+    mainVel++;
+    for (int x = 0; x < columns; x++) {
+      for (int y = 0; y < rows; y++) {
+        enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVel ));
+      }
+    }
   }
 }
 
