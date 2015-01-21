@@ -30,10 +30,10 @@ class Enemy {
     }
   }
 
-//  void newLevel() {
-//    if (enemies.size() = 0) {
-//      vel++;
-//    }
-//  }
+  void newLevel() {
+    if (enemies.size() == 0) {
+      vel.x++;
+      //enemies.add(Enemy);
+    }
+  }
 }
-

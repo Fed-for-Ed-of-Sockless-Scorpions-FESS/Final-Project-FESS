@@ -34,7 +34,7 @@ void draw() {
     e.move();
     e.bounce();
     e.gameover();
-    //e.newLevel();
+    e.newLevel();
     for (int j = 0; j< shoots.size (); j++) {
       Shooter s = shoots.get(j);
       if (s.destroy(e)) {
