@@ -12,9 +12,11 @@ PVector[] vel= new PVector[count];
 PVector[] acc= new PVector[count];
 float[] sz= new float[count];
 
+PImage sky;
 void setup() {
   size (800, 600);
    cloud= loadImage("coud.png");
+sky= loadImage("sky11.png");
 
   for (int i=0; i< count; i++) {
     sz[i]= random(30, 50);
@@ -36,6 +38,7 @@ void setup() {
 
 void draw() {
   background(0);
+  image(sky,0,0,800,600);
   
   for (int i= 0; i<count; i++) {
     vel[i].add(acc[i]);
