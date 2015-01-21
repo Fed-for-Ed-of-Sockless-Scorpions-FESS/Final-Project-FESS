@@ -3,9 +3,9 @@ class Enemy {
   PVector vel;
   float sz;
 
-  Enemy(float x, float y) {
+  Enemy(float x, float y, float tempVel) {
     loc = new PVector(x, y);
-    vel = new PVector(1, .1);
+    vel = new PVector(tempVel, .1);
     sz = 30;
   }
 
@@ -30,10 +30,15 @@ class Enemy {
     }
   }
 
-  void newLevel() {
-    if (enemies.size() == 0) {
-      vel.x++;
-      //enemies.add(Enemy);
-    }
-  }
+//  void newLevel() {
+//    if (enemies.size() == 0) {
+//      vel.x++;
+//      for (int x = 0; x < columns; x++) {
+//        for (int y = 0; y < rows; y++) {
+//          enemies.add(new Enemy(80 + x * 50, 25 + y * 50));
+//        }
+//      }
+//    }
+//  }
 }
+

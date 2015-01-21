@@ -10,7 +10,7 @@ void setup() {
   BlackBox.init(this);
   for (int x = 0; x < columns; x++) {
     for (int y = 0; y < rows; y++) {
-      enemies.add(new Enemy(80 + x * 50, 25 + y * 50));
+      enemies.add(new Enemy(80 + x * 50, 25 + y * 50,1));
     }
     textSize(70);
   }
@@ -34,7 +34,14 @@ void draw() {
     e.move();
     e.bounce();
     e.gameover();
-    e.newLevel();
+    //e.newLevel();
+    if (enemies.size() == 0) {
+      for (int x = 0; x < columns; x++) {
+        for (int y = 0; y < rows; y++) {
+          enemies.add(new Enemy(80 + x * 50, 25 + y * 50,1 ));
+        }
+      }
+    }
     for (int j = 0; j< shoots.size (); j++) {
       Shooter s = shoots.get(j);
       if (s.destroy(e)) {
