@@ -2,15 +2,19 @@ class Enemy {
   PVector loc;
   PVector vel;
   float sz;
-
+//
+PImage enemy;
+//
   Enemy(float x, float y, float tempVel) {
     loc = new PVector(x, y);
     vel = new PVector(tempVel, .1);
     sz = 30;
+    enemy= loadImage ("enemy.png");
   }
 
   void display() {
-    ellipse(loc.x, loc.y, sz, sz);
+   // ellipse(loc.x, loc.y, sz, sz);
+    image(enemy,loc.x, loc.y, sz, sz);
   }
 
   void move() {

@@ -1,14 +1,17 @@
 class spaceShip {
   PVector loc;
   float sz;
-
+  PImage superman;
+  
   spaceShip() {
-    sz = 30;
-    loc = new PVector(width/2, height *.9);
+    sz = 74;
+    loc = new PVector(width/2, height *.85);
+    superman= loadImage ("superman.png");
   }
 
   void display() {
-    ellipse(loc.x, loc.y, sz, sz);
+   // ellipse(loc.x, loc.y, sz, sz);
+    image(superman,loc.x, loc.y, sz, sz);
   }
 
   void move () {
