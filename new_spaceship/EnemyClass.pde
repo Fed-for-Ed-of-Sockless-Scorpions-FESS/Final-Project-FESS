@@ -1,4 +1,4 @@
-class Enemy {                                 //initiaze class
+class Enemy {                                   //initiaze class
   PVector loc;                                  // declare variables for location, velociy, size, and images
   PVector vel;  
   float sz;
