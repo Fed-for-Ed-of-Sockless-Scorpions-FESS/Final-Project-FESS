@@ -6,6 +6,7 @@ int rows = 4;
 int columns = 10;
 int mainVel = 1;
 PImage sky;
+int levelNumber = 1;
 
 void setup() {                                              // initialize classes and load image
   size (800, 600);
@@ -20,11 +21,14 @@ void setup() {                                              // initialize classe
 }
 
 void draw() {
-  background(0);
-
+  image(sky, 0, 0, 800, 600);                               // display sky image
+  
+  textSize(40);                                             
+  text("Level " + levelNumber, 20, 50);                     // displays what level you are on
+  
   newLevel();                                               // call newLevel function
 
-  image(sky, 0, 0, 800, 600);                               // display sky image
+  
   cloud.display();                                          // make cloud display and move
   cloud.move();
 
@@ -63,7 +67,7 @@ void keyPressed() {                                        // make Shooter shoot
 }
 
 void newLevel() {                                         // declare newLevel function
-  if (enemies.size() == 0) {                              // if no enemies exist then add new enemies and increase their velocity
+  if (enemies.size() == 0) {                              // if no enemies exist then add new enemies and increase velocity and increase level
 
     for (int x = 0; x < columns; x++) {
       for (int y = 0; y < rows; y++) {
@@ -71,6 +75,7 @@ void newLevel() {                                         // declare newLevel fu
       }
     }
     mainVel++;
+    levelNumber++;
   }
 }
 

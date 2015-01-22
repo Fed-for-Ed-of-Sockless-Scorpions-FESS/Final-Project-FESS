@@ -31,8 +31,8 @@ class Enemy {                                          // initialize class
       textSize(70);
       text("Game Over!", 200, 200);
       textSize(40);
-      text("You made it to level...", 200, 300);
-      text("to try again...press", 200, 400);
+      text("You made it to level  " + levelNumber, 200, 300);
+      //text("to try again...press", 200, 400);
     }
   }
 }
