@@ -26,7 +26,7 @@ sky= loadImage("sky11.png");
   }
   //
   ship = new spaceShip();
-  BlackBox.init(this);
+  
   for (int x = 0; x < columns; x++) {
     for (int y = 0; y < rows; y++) {
       enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVel));
@@ -79,10 +79,9 @@ void draw() {
       }
     }
   }
-  if (BlackBox.isKeyDown(BlackBox.VK_SPACE) && BlackBox.isKeyDown(BlackBox.VK_LEFT)) {
-    println("Both the 'A' key and the 'A' key are pressed!");
+ 
   }
-}
+
 
 void keyPressed() {
   if (key == ' ') {
