@@ -1,4 +1,4 @@
-spaceShip ship;
+spaceShip ship;                          
 ArrayList<Shooter> shoots = new ArrayList<Shooter> ();
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int rows = 4;

@@ -2,9 +2,9 @@ class Enemy {
   PVector loc;
   PVector vel;
   float sz;
-//
-PImage enemy;
-//
+  //
+  PImage enemy;
+  //
   Enemy(float x, float y, float tempVel) {
     loc = new PVector(x, y);
     vel = new PVector(tempVel, .1);
@@ -13,8 +13,8 @@ PImage enemy;
   }
 
   void display() {
-   // ellipse(loc.x, loc.y, sz, sz);
-    image(enemy,loc.x, loc.y, sz, sz);
+    // ellipse(loc.x, loc.y, sz, sz);
+    image(enemy, loc.x, loc.y, sz, sz);
   }
 
   void move() {
@@ -28,21 +28,10 @@ PImage enemy;
   }
 
   void gameover() {
-    if (loc.y+sz/2>height) {
+    if (loc.y+sz/2>500) {
       background(0);
       text("Game Over!", width/2-175, height/2);
     }
   }
-
-//  void newLevel() {
-//    if (enemies.size() == 0) {
-//      vel.x++;
-//      for (int x = 0; x < columns; x++) {
-//        for (int y = 0; y < rows; y++) {
-//          enemies.add(new Enemy(80 + x * 50, 25 + y * 50));
-//        }
-//      }
-//    }
-//  }
 }
 
