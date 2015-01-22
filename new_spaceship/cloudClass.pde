@@ -1,12 +1,12 @@
-class Cloud {
-  int count= 35;
+class Cloud {                                                              // initialize class
+  int count= 35;                                                           // declare variables
   PImage cloud;
   PVector[] loc= new PVector[count];
   PVector[] vel= new PVector[count];
   PVector[] acc= new PVector[count];
   float[] sz= new float[count];
 
-  Cloud() {
+  Cloud() {                                                                //initialize variables and load image
     cloud= loadImage("coud.png");
     for (int i=0; i< count; i++) {
       sz[i]= random(30, 50);
@@ -16,17 +16,16 @@ class Cloud {
     }
   }
 
-  void display() {
+  void display() {                                                          // display clouds
     for (int i=0; i< count; i++)
       image(cloud, loc[i].x, loc[i].y, sz[i], sz[i]);
   }
 
-  void move() {
+  void move() {                                                             // move clouds down the screen
     for (int i= 0; i<count; i++) {
       vel[i].add(acc[i]);
       loc[i].add(vel[i]);
       vel[i].limit(3);
-
       acc[i].x= random(-.01, .01);
       if (loc[i].y -sz[i]/2 > height) {
         loc[i].set(random(width), random(-height, -sz[i]/2));
