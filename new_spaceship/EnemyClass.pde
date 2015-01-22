@@ -2,21 +2,14 @@ class Enemy {                                   //initiaze class
   PVector loc;                                  // declare variables for location, velociy, size, and images
   PVector vel;  
   float sz;
-
-
-
-  //
   PImage enemy;
-  //
+
   Enemy(float x, float y, float tempVel) {             // initialize vaiable for class
-  
-      loc = new PVector(x, y);
-    vel = new PVector(tempVel, .1);
+    loc = new PVector(x, y);
+    vel = new PVector(tempVel, .2);
     sz = 30;
     enemy= loadImage ("enemy.png");
   }
-
-
 
   void display() {                                      // comand drawing enemy
     // ellipse(loc.x, loc.y, sz, sz);
@@ -32,14 +25,15 @@ class Enemy {                                   //initiaze class
       vel.x *= -1;
     }
   }
-  
+
   void gameover() {                                     // shows game over screen when enemies reach supermans location
     if (loc.y+sz/2>500) {    
-
-
       background(0);
-      text("Game Over!", width/2-175, height/2);
+      textSize(70);
+      text("Game Over!", 200, 200);
+      textSize(40);
+      text("You made it to level...", 200, 300);
+      text("to try again...press", 200, 400);
     }
   }
 }
-

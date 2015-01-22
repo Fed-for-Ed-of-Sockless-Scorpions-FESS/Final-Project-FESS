@@ -2,25 +2,25 @@ class Shooter {                                                     //initiaze c
   float sz;                                                         // declare variables for location, velociy, size, and images
   PVector loc;
   PVector vel;
-PImage bullet;
+  PImage bullet;
 
-  Shooter(spaceShip ship) {                                         // initialize vaiable for class
+  Shooter(spaceShip ship) {                                         // initialize variable for class
     sz = 20;
     loc = new PVector(ship.loc.x, ship.loc.y);
     vel = new PVector(0, -3);
     bullet= loadImage ("bullet.png");
   }
 
-  void display() {                                                  // comand drawing fire/ bullet
-   // ellipse(loc.x, loc.y, sz, sz);
-    image(bullet,loc.x, loc.y, sz, sz);
+  void display() {                                                  // command drawing fire/ bullet
+    // ellipse(loc.x, loc.y, sz, sz);
+    image(bullet, loc.x, loc.y, sz, sz);
   }
 
-  void move() {                                                    // alows bullet to move up oon the screen towards enemy
+  void move() {                                                    // allows bullet to move up on the screen towards enemy
     loc. add(vel);
   }
 
-  boolean destroy(Enemy monster) {                                 // makes enemy disapear when bullet touches enemy
+  boolean destroy(Enemy monster) {                                 // makes enemy disappear when bullet touches enemy
     if (loc.dist(monster.loc) < sz/2 + monster.sz/2) {
       return true;
     } else {
@@ -29,11 +29,10 @@ PImage bullet;
   }
 
   boolean flyAway() {                                            // removes bullet when reaches top of screen
-    if (loc.y - sz/2 < 0) {
+    if (loc.y + sz/2 < 0) {
       return true;
     } else { 
       return false;
     }
   }
 }
-

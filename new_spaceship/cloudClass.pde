@@ -7,6 +7,7 @@ class Cloud {
   float[] sz= new float[count];
 
   Cloud() {
+    cloud= loadImage("coud.png");
     for (int i=0; i< count; i++) {
       sz[i]= random(30, 50);
       loc[i]= new PVector(random(width), random(-height* 1.5, -sz[i]/2));
@@ -14,11 +15,10 @@ class Cloud {
       acc[i]= new PVector(0, .001);
     }
   }
-  
 
   void display() {
     for (int i=0; i< count; i++)
-    image(cloud, loc[i].x, loc[i].y, sz[i], sz[i]);
+      image(cloud, loc[i].x, loc[i].y, sz[i], sz[i]);
   }
 
   void move() {
