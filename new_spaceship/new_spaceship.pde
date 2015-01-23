@@ -4,9 +4,11 @@ ArrayList<Shooter> shoots = new ArrayList<Shooter> ();
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int rows = 4;
 int columns = 10;
-int mainVel = 1;
+int mainVelx = 1;
+float mainVely = .1;
 PImage sky;
 int levelNumber = 1;
+
 
 void setup() {                                              // initialize classes and load image
   size (800, 600);
@@ -15,7 +17,7 @@ void setup() {                                              // initialize classe
   ship = new spaceShip();
   for (int x = 0; x < columns; x++) {
     for (int y = 0; y < rows; y++) {
-      enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVel));
+      enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVelx, mainVely));
     }
   }
 }
@@ -27,7 +29,6 @@ void draw() {
   text("Level " + levelNumber, 20, 50);                     // displays what level you are on
   
   newLevel();                                               // call newLevel function
-
   
   cloud.display();                                          // make cloud display and move
   cloud.move();
@@ -71,10 +72,11 @@ void newLevel() {                                         // declare newLevel fu
 
     for (int x = 0; x < columns; x++) {
       for (int y = 0; y < rows; y++) {
-        enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVel ));
+        enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVelx, mainVely));
       }
     }
-    mainVel++;
+    mainVelx++;
+    mainVely = mainVely + .1;
     levelNumber++;
   }
 }

@@ -4,9 +4,9 @@ class Enemy {                                          // initialize class
   float sz;
   PImage enemy;
 
-  Enemy(float x, float y, float tempVel) {             // initialize vaiables for class
+  Enemy(float x, float y, float tempVelx, float tempVely) {             // initialize vaiables for class
     loc = new PVector(x, y);
-    vel = new PVector(tempVel, .2);
+    vel = new PVector(tempVelx, tempVely);
     sz = 30;
     enemy= loadImage ("enemy.png");
   }
