@@ -29,9 +29,9 @@ class Enemy {                                          // initialize class
     if (loc.y+sz/2>500) {    
       background(0);
       textSize(70);
-      text("Game Over!", 200, 200);
-      textSize(40);
-      text("You made it to level  " + levelNumber, 200, 300);
+      text("Game Over!", 170, 200);
+      textSize(35);
+      text("You made it to level " + levelNumber, 120, 300);
       //text("to try again...press", 200, 400);
     }
   }

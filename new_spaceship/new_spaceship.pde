@@ -5,18 +5,20 @@ ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int rows = 4;
 int columns = 10;
 int mainVelx = 1;
-float mainVely = .1;
+float mainVely = 1;
 PImage sky;
 PImage keys;
 PImage spacebar;
 int levelNumber = 1;
 int screen = 1;
-
+PFont mono;
 void setup() {                                              // initialize classes and load image
   size (800, 600);
   sky= loadImage("sky11.png");
-  keys = loadImage("LeftRightKeys.jpg");
-  spacebar = loadImage("spacebar.jpg");
+  keys = loadImage("keys.png");
+  spacebar = loadImage("spacebarNew.png");
+  mono = loadFont("Monotxt_IV50-48.vlw");
+  textFont(mono);
   cloud = new Cloud();
   ship = new spaceShip();
   for (int x = 0; x < columns; x++) {
@@ -29,22 +31,22 @@ void setup() {                                              // initialize classe
 void draw() {
   if (screen == 1) {
     background(0);
-    textSize(70);
-    text("Superhero Rescue", 100, 300);
+    textSize(60);
+    text("Superhero Rescue", 60, 300);
     textSize(25);
-    text("press mouse to continue", 250, 400);
+    text("press mouse to continue", 200, 400);
   }
 
   if (screen == 2) {
     background(0);
-    textSize(60);
-    text("Directions!" , 250, 150);
-    textSize(40);
-    text("press         to move left and right", 100, 250);
-    image(keys, 220, 225, keys.width/3, keys.height/3);
-    text("press                   to shoot", 100, 350);
-    image(spacebar, 220, 325, spacebar.width/2, spacebar.height/2);
-    text("press mouse to start", 100, 450);
+    textSize(50);
+    text("Directions!" , 200, 150);
+    textSize(30);
+    text("press     to move left and right", 80, 250);
+    image(keys, 200, 225, keys.width/3, keys.height/3);
+    text("press           to shoot", 80, 350);
+    image(spacebar, 200, 325, spacebar.width/2, spacebar.height/2);
+    text("press mouse to start", 80, 450);
   }
   
   if (screen == 3) {
