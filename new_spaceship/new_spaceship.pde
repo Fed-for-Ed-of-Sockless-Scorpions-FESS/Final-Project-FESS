@@ -5,7 +5,7 @@ ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int rows = 4;
 int columns = 10;
 int mainVelx = 1;
-float mainVely = 1;
+float mainVely = .1;
 PImage sky;
 PImage keys;
 PImage spacebar;
