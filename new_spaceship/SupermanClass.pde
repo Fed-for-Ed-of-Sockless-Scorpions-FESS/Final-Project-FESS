@@ -1,9 +1,9 @@
-class spaceShip {                                        // initialize class
+class Superman {                                         // initialize class
   PVector loc;                                           // declare variables for location, size, and image
   float sz;
   PImage superman;
 
-  spaceShip() {                                          // initialize variables and load image
+  Superman() {                                           // initialize variables and load image
     sz = 74;                                              
     loc = new PVector(width/2, height *.85);
     superman= loadImage ("superman.png");

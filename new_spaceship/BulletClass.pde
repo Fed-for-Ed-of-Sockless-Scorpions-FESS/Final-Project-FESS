@@ -1,12 +1,12 @@
-class Shooter {                                                     // initialize class
-  float sz;                                                         // declare variables for location, velociy, size, and image
+class Bullet {                                                     // initialize class
+  float sz;                                                        // declare variables for location, velociy, size, and image
   PVector loc;
   PVector vel;
   PImage bullet;
 
-  Shooter(spaceShip ship) {                                         // initialize variable for class and load image
+  Bullet(Superman character) {                                     // initialize variable for class and load image
     sz = 20;
-    loc = new PVector(ship.loc.x, ship.loc.y);
+    loc = new PVector(character.loc.x, character.loc.y);
     vel = new PVector(0, -3);
     bullet= loadImage ("bullet.png");
   }

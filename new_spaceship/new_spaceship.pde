@@ -1,27 +1,29 @@
-spaceShip ship;                                             // declare classes, arraylists, integers and image
+Superman character;                                         // declare classes, arraylists, integers and image
 Cloud cloud;
-ArrayList<Shooter> shoots = new ArrayList<Shooter> ();
+ArrayList<Bullet> fire = new ArrayList<Bullet> ();
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int rows = 4;
 int columns = 10;
 int mainVelx = 1;
 float mainVely = .1;
+int levelNumber = 1;
+int screen = 1;
 PImage sky;
 PImage keys;
 PImage spacebar;
-int levelNumber = 1;
-int screen = 1;
+PImage background;
 PFont mono;
 
 void setup() {                                              // initialize classes and load image and font
   size (800, 600);
-  sky= loadImage("sky11.png");
+  sky = loadImage("sky11.png");
   keys = loadImage("keys.png");
   spacebar = loadImage("spacebarNew.png");
+  background = loadImage("FlyingSupermanBackground.jpg");
   mono = loadFont("Monotxt_IV50-48.vlw");
   textFont(mono);
   cloud = new Cloud();
-  ship = new spaceShip();
+  character = new Superman();
   for (int x = 0; x < columns; x++) {
     for (int y = 0; y < rows; y++) {
       enemies.add(new Enemy(80 + x * 50, 25 + y * 50, mainVelx, mainVely));
@@ -31,23 +33,26 @@ void setup() {                                              // initialize classe
 
 void draw() {
   if (screen == 1) {                                          // opening screen
-    background(0);
+    image(background, 0, 0, width, height);
     textSize(60);
-    text("Superhero Rescue", 60, 300);
+    text("Superhero Rescue", 60, 145);
     textSize(25);
-    text("press ENTER to continue", 200, 400);
+    text("press ENTER to continue", 200, 500);
   }
 
   if (screen == 2) {                                          // directions screen
     background(0);
     textSize(50);
-    text("Directions!", 200, 150);
+    text("Directions!", 200, 100);
+    textSize(25);
+    text("Shoot the red monsters before ", 80, 175);
+    text("they come too close to Superman.", 80, 225);
     textSize(30);
-    text("press     to move left and right", 80, 250);
-    image(keys, 200, 225, keys.width/3, keys.height/3);
-    text("press           to shoot", 80, 350);
-    image(spacebar, 200, 325, spacebar.width/2, spacebar.height/2);
-    text("press ENTER to start", 80, 450);
+    text("press     to move left and right", 80, 300);
+    image(keys, 200, 275, keys.width/3, keys.height/3);
+    text("press           to shoot", 80, 400);
+    image(spacebar, 200, 375, spacebar.width/2, spacebar.height/2);
+    text("press ENTER to start", 80, 500);
   }
 
   if (screen == 3) {
@@ -61,15 +66,15 @@ void draw() {
     cloud.display();                                          // make cloud display and move
     cloud.move();
 
-    ship.display();                                           // make spaceship display and move
-    ship.move();
+    character.display();                                      // make superman display and move
+    character.move();
 
-    for (int i = 0; i< shoots.size (); i++) {                 // go through Shooter arraylist
-      Shooter s = shoots.get(i);                              // get bullet(shooter) out of list
-      s.display();                                            // display and move bullet
-      s.move();
-      if (s.flyAway()) {                                      // if flyAway is true, then remove bullet
-        shoots.remove(i);
+    for (int i = 0; i< fire.size (); i++) {                  // go through bullet arraylist
+      Bullet f = fire.get(i);                                // get bullet out of list
+      f.display();                                           // display and move bullet
+      f.move();
+      if (f.flyAway()) {                                     // if flyAway is true, then remove bullet
+        fire.remove(i);
       }
     }
 
@@ -79,11 +84,11 @@ void draw() {
       e.move();
       e.bounce();
       e.gameover();                                          // if gameover conditions apply, show gameover screen
-      for (int j = 0; j< shoots.size (); j++) {              // go through Shooter arraylist while still in the Enemy arraylist
-        Shooter s = shoots.get(j);                           // get shooter out of arraylist
-        if (s.destroy(e)) {                                  // if destroy is true, then remove that enemy and that bullet (shooter)
+      for (int j = 0; j< fire.size (); j++) {                // go through bullet arraylist while still in the Enemy arraylist
+        Bullet f = fire.get(j);                              // get bullet out of arraylist
+        if (f.destroy(e)) {                                  // if destroy is true, then remove that enemy and that bullet
           enemies.remove(i);
-          shoots.remove(j);
+          fire.remove(j);
         }
       }
     }
@@ -101,11 +106,11 @@ void draw() {
     //    }
   }
 }
-void keyReleased() {                                        // make Shooter shoot when spacebar is released
+void keyReleased() {                                        // make bullet shoot when spacebar is released
   if (key == ' ') {
-    shoots.add(new Shooter(ship));
+    fire.add(new Bullet(character));
   }
-  if (key == ENTER) {                                      // switch to next screen when enter is released
+  if (key == ENTER) {                                       // switch to next screen when enter is released
     screen++;
     screen = constrain(screen, 0, 3);
   }
