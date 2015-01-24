@@ -4,7 +4,7 @@ class Enemy {                                          // initialize class
   float sz;
   PImage enemy;
 
-  Enemy(float x, float y, float tempVelx, float tempVely) {             // initialize vaiables for class
+  Enemy(float x, float y, float tempVelx, float tempVely) {      // initialize vaiables for class
     loc = new PVector(x, y);
     vel = new PVector(tempVelx, tempVely);
     sz = 30;
@@ -25,14 +25,10 @@ class Enemy {                                          // initialize class
     }
   }
 
-  void gameover() {                                     // shows game over screen when enemies reach Superman's location
-    if (loc.y+sz/2>500) {    
-      background(0);
-      textSize(70);
-      text("Game Over!", 170, 200);
-      textSize(35);
-      text("You made it to level " + levelNumber, 120, 300);
-      //text("to try again...press", 200, 400);
+  void gameover() {                                     // set to screen 4 when enemies reach Superman's location
+    if (loc.y+sz/2 > 500) { 
+      screen = 4;
     }
   }
 }
+

@@ -12,7 +12,8 @@ PImage spacebar;
 int levelNumber = 1;
 int screen = 1;
 PFont mono;
-void setup() {                                              // initialize classes and load image
+
+void setup() {                                              // initialize classes and load image and font
   size (800, 600);
   sky= loadImage("sky11.png");
   keys = loadImage("keys.png");
@@ -29,26 +30,26 @@ void setup() {                                              // initialize classe
 }
 
 void draw() {
-  if (screen == 1) {
+  if (screen == 1) {                                          // opening screen
     background(0);
     textSize(60);
     text("Superhero Rescue", 60, 300);
     textSize(25);
-    text("press mouse to continue", 200, 400);
+    text("press ENTER to continue", 200, 400);
   }
 
-  if (screen == 2) {
+  if (screen == 2) {                                          // directions screen
     background(0);
     textSize(50);
-    text("Directions!" , 200, 150);
+    text("Directions!", 200, 150);
     textSize(30);
     text("press     to move left and right", 80, 250);
     image(keys, 200, 225, keys.width/3, keys.height/3);
     text("press           to shoot", 80, 350);
     image(spacebar, 200, 325, spacebar.width/2, spacebar.height/2);
-    text("press mouse to start", 80, 450);
+    text("press ENTER to start", 80, 450);
   }
-  
+
   if (screen == 3) {
     image(sky, 0, 0, 800, 600);                               // display sky image
 
@@ -87,10 +88,26 @@ void draw() {
       }
     }
   }
+  if (screen ==4) {                                          // game over screen
+    background(0);
+    textSize(70);
+    text("Game Over!", 170, 200);
+    textSize(35);
+    text("You made it to level " + levelNumber, 120, 300);
+    //text("to try again...press", 200, 400);
+    //    if (key == ENTER) {
+    //      screen = 3;
+    //      println("new game");
+    //    }
+  }
 }
-void keyPressed() {                                        // make Shooter shoot when spacebar is pressed
+void keyReleased() {                                        // make Shooter shoot when spacebar is released
   if (key == ' ') {
     shoots.add(new Shooter(ship));
+  }
+  if (key == ENTER) {                                      // switch to next screen when enter is released
+    screen++;
+    screen = constrain(screen, 0, 3);
   }
 }
 
@@ -105,12 +122,6 @@ void newLevel() {                                         // declare newLevel fu
     mainVelx++;
     mainVely = mainVely + .1;
     levelNumber++;
-  }
-}
-
-void mousePressed() {
-  if (mousePressed) {
-    screen++;
   }
 }
 
