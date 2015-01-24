@@ -56,7 +56,7 @@ void draw() {
   }
 
   if (screen == 3) {
-    image(sky, 0, 0, 800, 600);                               // display sky image
+    image(sky, 0, 0, width, height);                               // display sky image
 
     textSize(40);                                             
     text("Level " + levelNumber, 20, 50);                     // displays what level you are on
