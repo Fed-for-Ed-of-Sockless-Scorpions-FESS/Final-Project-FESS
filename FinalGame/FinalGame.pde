@@ -99,13 +99,9 @@ void draw() {
     text("Game Over!", 170, 200);
     textSize(35);
     text("You made it to level " + levelNumber, 120, 300);
-    //text("to try again...press", 200, 400);
-    //    if (key == ENTER) {
-    //      screen = 3;
-    //      println("new game");
-    //    }
   }
 }
+
 void keyReleased() {                                        // make bullet shoot when spacebar is released
   if (key == ' ') {
     fire.add(new Bullet(character));
